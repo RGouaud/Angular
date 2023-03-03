@@ -4,6 +4,7 @@
     <p>Artiste / Artiste : {{ leCd.author }}</p>
     <p>Prix : {{ leCd.price | currency: 'EUR' }}</p>
     <p>En stock : <span [ngStyle]="{ color: 'rgb(0,'+ leCd.quantity +',0)' }"> {{ leCd.quantity }}</span></p>
+    <button (click)="onAddCD()">Ajouter une unité</button>
     <img [src]="leCd.thumbnail" [alt]="leCd.title"> <!-- Si les attributs sont entre crochet, angular comprend que ce sont des variables qu'on lui passe : pas besoins de double moustaches -->
     
 

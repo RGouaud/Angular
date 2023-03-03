@@ -8,4 +8,9 @@ import { Cd } from 'src/models/cd';
 })
 export class CdComponent {
   @Input() leCd!: Cd;
+
+  onAddCD(){
+    this.leCd.quantity++;
+  }
 }
+
