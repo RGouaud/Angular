@@ -1,5 +1,5 @@
 <div class="list-cd">
     <ng-container *ngFor="let unCd of listecd">
-        <app-cd [leCd]="unCd"></app-cd>
+        <app-cd *ngIf="unCd.quantity > 0" [leCd]="unCd"></app-cd>
     </ng-container>
 </div>
