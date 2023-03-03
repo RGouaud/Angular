@@ -19,7 +19,7 @@ export class ListeCDsComponent implements OnInit {
         price : 12.99,
         thumbnail : "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
         dateRelease : new Date(1973, 3, 1),
-        quantity : 10,
+        quantity : 255,
         onSale : true
       },
       {
