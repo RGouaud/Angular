@@ -27,7 +27,7 @@ export class ListeCDsComponent implements OnInit {
         title : "The Wall",
         author : "Pink Floyd",
         price : 12.99,
-        thumbnail : "https://upload.wikimedia.org/wikipedia/en/0/0b/The_Wall_%28Pink_Floyd_album_-_cover_art%29.png",
+        thumbnail : "https://upload.wikimedia.org/wikipedia/commons/b/b1/The_Wall_Cover.svg",
         dateRelease : new Date(1979, 11, 1),
         quantity : 10,
         onSale : true
@@ -37,7 +37,7 @@ export class ListeCDsComponent implements OnInit {
         title : "Wish You Were Here",
         author : "Pink Floyd",
         price : 12.99,
-        thumbnail : "https://upload.wikimedia.org/wikipedia/en/7/7f/Pink_Floyd_-_Wish_You_Were_Here.png",
+        thumbnail : "https://upload.wikimedia.org/wikipedia/tr/6/63/Pink_floyd_wish_you_were_here.jpg",
         dateRelease : new Date(1975, 9, 1),
         quantity : 10,
         onSale : true
@@ -47,7 +47,7 @@ export class ListeCDsComponent implements OnInit {
         title : "Doolitle",
         author : "Pixies",
         price : 12.99,
-        thumbnail : "https://upload.wikimedia.org/wikipedia/en/3/3b/Doolittle_%28Pixies_album_-_cover_art%29.png",
+        thumbnail : "https://upload.wikimedia.org/wikipedia/en/6/6b/Pixies-Doolittle.jpg",
         dateRelease : new Date(1989, 4, 1),
         quantity : 10,
         onSale : true
