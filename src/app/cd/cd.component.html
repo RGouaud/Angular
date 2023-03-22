@@ -1,11 +1,15 @@
-<div class="cd-card" [ngClass]="{'cdonsale': leCd.onSale === true }">
-    <h3>{{ leCd.title }}</h3>
-    <p>Sortie le : {{ leCd.dateRelease | date: "dd/MM/yyyy"}}</p>
-    <p>Artiste / Artiste : {{ leCd.author }}</p>
-    <p>Prix : {{ leCd.price | currency: 'EUR' }}</p>
-    <p>En stock : <span [ngStyle]="{ color: 'rgb(0,'+ leCd.quantity +',0)' }"> {{ leCd.quantity }}</span></p>
+<div class="cd-card" [ngClass]="{'cdonsale': unCd.onSale === true }">
+    <h3>{{ unCd.title | uppercase }}</h3>
+    <p>Sortie le : {{ unCd.dateRelease | date: "dd/MM/yyyy"}}</p>
+    <p>Artiste / Artiste : {{ unCd.author }}</p>
+    <p>Prix : {{ unCd.price | currency: 'EUR' }}</p>
+    <p>En stock : <span [ngStyle]="{ color: 'rgb(0,'+ unCd.quantity +',0)' }"> {{ unCd.quantity }}</span></p>
     <button (click)="onAddCD()">Ajouter une unité</button>
-    <img [src]="leCd.thumbnail" [alt]="leCd.title"> <!-- Si les attributs sont entre crochet, angular comprend que ce sont des variables qu'on lui passe : pas besoins de double moustaches -->
+
+    <a routerLink="../cd/{{ unCd.id }}"><button>T'es miope ?</button></a>
+
+
+    <img [src]="unCd.thumbnail" [alt]="unCd.title"> <!-- Si les attributs sont entre crochet, angular comprend que ce sont des variables qu'on lui passe : pas besoins de double moustaches -->
     
 
 </div>
