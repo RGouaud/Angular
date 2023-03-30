@@ -1,64 +1,35 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cd } from '../../models/cd';
+import { Observable } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CdsService {
 
-  constructor() { }
+  constructor(private http : HttpClient) { }
 
-  getAllCDS(): Cd [] {
-    return [
-      {
-        id: 1,
-        title : "The Dark Side of the Moon",
-        author : "Pink Floyd",
-        price : 12.99,
-        thumbnail : "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
-        dateRelease : new Date(1973, 3, 1),
-        quantity : 255,
-        onSale : true
-      },
-      {
-        id : 2,
-        title : "The Wall",
-        author : "Pink Floyd",
-        price : 12.99,
-        thumbnail : "https://upload.wikimedia.org/wikipedia/commons/b/b1/The_Wall_Cover.svg",
-        dateRelease : new Date(1979, 11, 1),
-        quantity : 10,
-        onSale : true
-      },
-      {
-        id : 3,
-        title : "Wish You Were Here",
-        author : "Pink Floyd",
-        price : 12.99,
-        thumbnail : "https://upload.wikimedia.org/wikipedia/tr/6/63/Pink_floyd_wish_you_were_here.jpg",
-        dateRelease : new Date(1975, 9, 1),
-        quantity : 10,
-        onSale : true
-      },
-      {
-        id : 4,
-        title : "Doolitle",
-        author : "Pixies",
-        price : 12.99,
-        thumbnail : "https://upload.wikimedia.org/wikipedia/en/6/6b/Pixies-Doolittle.jpg",
-        dateRelease : new Date(1989, 4, 1),
-        quantity : 10,
-        onSale : true
-      }
-    ];
+  getAllCDS(): Observable<Cd[]> {
+    return this.http.get<Cd[]>('http://localhost:3001/CD');
   }
 
-  getCdById(id: number): Cd{
-    const cd = this.getAllCDS().find(cd => cd.id === id);
+  getCdById(id: number): Observable<Cd>{
+    const cd = this.http.get<Cd>('http://localhost:3001/CD/'+id);
     if(cd){
       return cd;
     }
     throw new Error ("Cd introuvable");
+  }
+
+  addCD(cd: Cd): Observable<Cd>{
+    return this.getAllCDS().pipe(
+      map(cds => [...cds].sort((a,b) => a.id - b.id)),
+      map(cds_tries => cds_tries[cds_tries.length - 1]),
+      map(cd_max => (cd.id=cd_max.id+1)),
+      switchMap(cd => this.http.post<Cd>('http://localhost:3001/CD', cd))
+    );
   }
 
 }

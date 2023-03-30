@@ -16,7 +16,7 @@ export class Cd {
         this.thumbnail = thumbnail;
         this.dateRelease = dateRelease;
         this.quantity = quantity;
-        if (onSale != undefined){
+        if (onSale !== undefined){
             this.onSale = onSale;
         }
     }

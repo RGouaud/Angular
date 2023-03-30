@@ -7,6 +7,9 @@ import { HeaderComponent } from './header/header.component';
 import { ListeCDsComponent } from './liste-cds/liste-cds.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { HomeComponent } from './home/home.component';
+import { FormCDComponent } from './form-cd/form-cd.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,14 @@ import { HomeComponent } from './home/home.component';
     CdComponent,
     HeaderComponent,
     ListeCDsComponent,
-    HomeComponent
+    HomeComponent,
+    FormCDComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
